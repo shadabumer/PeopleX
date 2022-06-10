@@ -9,6 +9,14 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { LanguageTranslationModule } from './shared/modules/language-translation/language-translation.module';
 
+import { DataTablesModule } from "angular-datatables";
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -16,7 +24,13 @@ import { LanguageTranslationModule } from './shared/modules/language-translation
         BrowserAnimationsModule,
         HttpClientModule,
         LanguageTranslationModule,
-        AppRoutingModule
+        AppRoutingModule,
+        DataTablesModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule,
+        // provideFirebaseApp(() => initializeApp(environment.firebase)),
+        // provideAuth(() => getAuth()),
+        // provideFirestore(() => getFirestore())
     ],
     declarations: [AppComponent],
     providers: [AuthGuard],

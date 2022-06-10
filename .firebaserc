@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "peoplex-app"
+  },
+  "targets": {
+    "peoplex-app": {
+      "hosting": {
+        "test-ng7": [
+          "peoplex-app"
+        ]
+      }
+    }
+  }
+}
