@@ -36,9 +36,14 @@ export class DataService {
     return this.firestore.collection('Projects').doc(id).delete();
   }
 
-  login() {
-    localStorage.setItem('isLoggedin', 'true');
-    this.isAdminLoggedIn.next(true);
+  login(email: string, password: string): boolean {
+    if(email == 'admin@peoplex.com' && password == 'admin@123') {
+      localStorage.setItem('isLoggedin', 'true');
+      this.isAdminLoggedIn.next(true);
+      return true;
+    }
+
+    return false;
 
   }
 
@@ -48,6 +53,7 @@ export class DataService {
   }
 
   isUserLoggedIn$(): Observable<boolean> {
+    localStorage.getItem('isLoggedin') == 'true' ? this.isAdminLoggedIn.next(true) : this.isAdminLoggedIn.next(false);
     return this.isAdminLoggedIn.asObservable();
   }
 }

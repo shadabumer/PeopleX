@@ -3,14 +3,19 @@
         <div class="col-md-4">
             <img class="user-avatar" src="assets/images/logo.png" width="150px" />
             <h1>PeopleX Admin</h1>
-            <form role="form">
+            <form role="form" [formGroup]="loginForm" (ngSubmit)="onLoggedin()">
                 <div class="form-content">
                     <div class="form-group">
                         <input
                             [placeholder]="'Email' | translate"
                             class="form-control input-underline input-lg"
-                            type="text"
+                            type="email"
+                            formControlName="email"
+                            id="email"
                         />
+                        <small class="text-danger" *ngIf="f.email.touched && f.email.errors?.required">
+                            Email is required
+                        </small>
                     </div>
 
                     <div class="form-group">
@@ -18,12 +23,22 @@
                             [placeholder]="'Password' | translate"
                             class="form-control input-underline input-lg"
                             type="password"
+                            formControlName="password"
+                            id="password"
                         />
+                        <small class="text-danger" *ngIf="f.password.touched && f.password.errors?.required">
+                            Password is required
+                        </small>
                     </div>
                 </div>
-                <a (click)="onLoggedin()" [routerLink]="['/dashboard']" class="btn rounded-btn">{{
-                    'Log in' | translate
-                }}</a>
+                <p  *ngIf="displayLoginError">
+                    <small class="text-danger">
+                       email / password incorrect
+                    </small>
+                </p>
+                <button type="submit" class="btn rounded-btn" [disabled]="loginForm.invalid">{{
+                    'Log in'
+                }}</button>
             </form>
         </div>
     </div>

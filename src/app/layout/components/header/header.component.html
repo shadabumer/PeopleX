@@ -5,7 +5,7 @@
         <ul class="navbar-nav ml-auto">
       
             <li class="nav-item">
-                <a (click)="onLogin()" [routerLink]="['/login']" *ngIf="!(isLoggedIn$ | async)">
+                <a [routerLink]="['/login']" *ngIf="!(isLoggedIn$ | async)">
                     <i class="fa fa-sign-in"></i> {{ 'Log In' | translate }}
                 </a>
                 <a (click)="onLoggedout()" [routerLink]="['/dashboard']" *ngIf="isLoggedIn$ | async">

@@ -22,8 +22,4 @@ export class HeaderComponent implements OnInit {
     onLoggedout() {
         this.dataService.logout(); 
     }
-
-    onLogin() {
-        this.dataService.login();
-    }
 }

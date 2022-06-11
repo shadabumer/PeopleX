@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../shared';
 import { AddProjectComponent } from './components/add-project/add-project.component';
 import { LayoutComponent } from './layout.component';
 
@@ -15,7 +16,8 @@ const routes: Routes = [
             },
             {
                 path: 'add',
-                component: AddProjectComponent
+                component: AddProjectComponent,
+                canActivate: [AuthGuard]
             },
             { path: 'charts', loadChildren: () => import('./charts/charts.module').then((m) => m.ChartsModule) },
             { path: 'tables', loadChildren: () => import('./tables/tables.module').then((m) => m.TablesModule) },
