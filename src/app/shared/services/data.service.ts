@@ -13,7 +13,7 @@ export class DataService {
   constructor(private firestore: AngularFirestore) { }
 
   getProjects() {
-    return this.firestore.collection('Projects', ref => ref.limit(10)).snapshotChanges()
+    return this.firestore.collection('Projects').snapshotChanges()
     .pipe(map(document => {
       return document.map((changes: any) => {
         return {

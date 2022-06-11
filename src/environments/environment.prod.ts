@@ -1,12 +1,12 @@
 export const environment = {
   production: true,
   firebase: {
-    projectId: 'peoplex-app',
-    appId: '1:297176324282:web:7bf66ee382af5249458a83',
-    storageBucket: 'peoplex-app.appspot.com',
-    locationId: 'asia-south1',
-    apiKey: 'AIzaSyCYQqzNLgd-mhTHPKxiuKlTBcgVNghVwn8',
-    authDomain: 'peoplex-app.firebaseapp.com',
-    messagingSenderId: '297176324282',
+    apiKey: "AIzaSyBwScgOG_mvztV4iYFs0Sn_jwEviBlVPPg",
+    authDomain: "peoplex-app-ca7a4.firebaseapp.com",
+    projectId: "peoplex-app-ca7a4",
+    storageBucket: "peoplex-app-ca7a4.appspot.com",
+    messagingSenderId: "1048301797089",
+    appId: "1:1048301797089:web:e01e02cda055933afc01a0",
+    measurementId: "G-MKZ6HS1WJS"
   },
 };
