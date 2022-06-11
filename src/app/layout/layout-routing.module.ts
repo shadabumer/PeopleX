@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddProjectComponent } from './components/add-project/add-project.component';
 import { LayoutComponent } from './layout.component';
 
 const routes: Routes = [
@@ -10,7 +11,11 @@ const routes: Routes = [
             { path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
             {
                 path: 'dashboard',
-                loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
+                loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+            },
+            {
+                path: 'add',
+                component: AddProjectComponent
             },
             { path: 'charts', loadChildren: () => import('./charts/charts.module').then((m) => m.ChartsModule) },
             { path: 'tables', loadChildren: () => import('./tables/tables.module').then((m) => m.TablesModule) },

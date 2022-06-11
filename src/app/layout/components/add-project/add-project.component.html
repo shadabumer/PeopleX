@@ -1,0 +1,106 @@
+<div class="card w-100 shadow">
+    <div class="card-body">
+      <h5 class="card-title">Add New Project</h5>
+      <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="name">Project name</label>
+            <input type="text"
+            class="form-control"
+            id="name"
+            placeholder="Enter project name"
+            formControlName="name"
+            required>
+            <small class="text-danger" *ngIf="f.name.touched && f.name.errors?.required">
+              Name is required
+            </small>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="authority">authority</label>
+            <input type="text"
+            class="form-control"
+            id="authority"
+            placeholder="authority name"
+            formControlName="authority"
+            required>
+              <small class="text-danger" *ngIf="f.authority.touched && f.authority.errors?.required">
+                authority is required
+              </small>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="price">Total Cost (in crores)</label>
+            <input type="number"
+            class="form-control"
+            id="totalCost"
+            placeholder="Enter the cost"
+            formControlName="totalCost"
+            min="0" step="1" required>
+            <small class="text-danger" *ngIf="f.totalCost.touched && f.totalCost.errors?.required">
+              total cost is is required
+            </small>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="dateOfAward">Date of Award</label>
+            <input type="date" class="form-control" id="dateOfAward" placeholder="dd/mm/yyyy"
+             formControlName="dateOfAward" required>
+            <small class="text-danger" *ngIf="f.dateOfAward.touched && f.dateOfAward.errors?.required">
+              Date of award is required
+            </small>
+          </div>
+  
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="state">State</label>
+              <select class="custom-select"
+              id="state"
+              formControlName="state">
+                <option disabled>Select State</option>
+                <option *ngFor="let state of states" [ngValue]="state">{{ state }}</option>
+              </select>
+              <small class="text-danger" *ngIf="f.state.touched && f.state.errors?.required">
+                  state is required
+              </small>
+            </div>
+
+            <div class="form-group col-md-4">
+              <label for="state">sector</label>
+              <select class="custom-select"
+              id="sector"
+              formControlName="sector">
+                <option disabled>Select Sector</option>
+                <option *ngFor="let sector of sectors" [ngValue]="sector">{{ sector }}</option>
+              </select>
+              <small class="text-danger" *ngIf="f.sector.touched && f.sector.errors?.required">
+                sector is required
+              </small>
+            </div>
+
+            <div class="form-group col-md-4">
+              <label for="status">Status</label>
+              <select class="custom-select"
+              id="status"
+              formControlName="status">
+                <option disabled>Select Project Status</option>
+                <option *ngFor="let status of projectStatus" [ngValue]="status">{{ status }}</option>
+              </select>
+              <small class="text-danger" *ngIf="f.status.touched && f.status.errors?.required">
+                project status is required
+              </small>
+            </div>
+        </div>
+
+  
+        <button type="submit" 
+        class="btn btn-primary" [disabled]="projectForm.invalid">Submit</button>
+  
+        <p class="text-success" *ngIf="isSubmitted">
+          Project added successfully
+        </p>
+      </form>
+    </div>
+  </div>
+  
