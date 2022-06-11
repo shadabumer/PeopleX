@@ -2,6 +2,9 @@
 
 People X provides information on infrastructure projects implemented by the Government, either through traditional procurement mode or through Public Private Partnership (PPP) mode
 
+## Demo
+To see the demo [click here](https://peoplex-app-ca7a4.firebaseapp.com/dashboard) or visit this link - https://peoplex-app-ca7a4.firebaseapp.com/dashboard
+
 ## Installation
 
 1. First install nodejs on your computer, LTS version is recommended - https://nodejs.org/en/
